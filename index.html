@@ -33,6 +33,16 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
 
+  <style>
+    .abstract {
+        display: none;
+    }
+    .show-more {
+        cursor: pointer;
+        color: brown;
+    }
+ </style> 
+
 </head>
 
 <body id="page-top">
@@ -58,11 +68,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#members">Members</a>
           </li>
-          <!--
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#pub">Publications/Blogs</a>
+            <a class="nav-link js-scroll-trigger" href="#pub">Publications</a>
           </li>
-          --> 
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#courses">Courses</a>
           </li>         
@@ -791,6 +799,64 @@
 
 
 
+  <!-- Publications -->
+  <section class="page-section" id="pub">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-12 text-center">           
+          <h2 class="section-heading "><SPAN STYLE="text-decoration:overline"> Publications</SPAN></h2> <!-- text-center-->
+          <h3 class="section-subheading text-muted"> </h3>
+        </div>
+      </div>
+      <br>
+      <!--
+      <div class="row text-center"> 
+        <div class="col-md-12">
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#research">Research</a>
+        </div>
+      </div>
+      <br>
+      <br>
+      -->
+
+      <!-- List of Publications -->
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Selected Papers:</h3>
+          <br>
+          <ul>
+            <li>
+              <h6><a href="https://pubs.acs.org/doi/10.1021/acs.jcim.3c00445" class="publication-title">FunQG: Molecular Representation Learning via Quotient Graphs</a></h6>
+              <p class="section-subheading text-muted">Hossein Hajiabolhassan, Zahra Taheri, Ali Hojatnia, and Yavar Taheri Yeganeh<br>Journal of Chemical Information and Modeling (2023)</p>
+              <div class="abstract">
+                <p>Abstract: To accurately predict molecular properties, it is important to learn expressive molecular representations. Graph neural networks (GNNs) have made significant advances in this area, but they often face limitations like neighbors-explosion, under-reaching, oversmoothing, and oversquashing. Additionally, GNNs tend to have high computational costs due to their large number of parameters. These limitations emerge or increase when dealing with larger graphs or deeper GNN models. One potential solution is to simplify the molecular graph into a smaller, richer, and more informative one that is easier to train GNNs. Our proposed molecular graph coarsening framework called FunQG, uses Functional groups as building blocks to determine a molecule’s properties, based on a graph-theoretic concept called Quotient Graph. We show through experiments that the resulting informative graphs are much smaller than the original molecular graphs and are thus more suitable for training GNNs. We apply FunQG to popular molecular property prediction benchmarks and compare the performance of popular baseline GNNs on the resulting data sets to that of state-of-the-art baselines on the original data sets. Our experiments demonstrate that FunQG yields notable results on various data sets while dramatically reducing the number of parameters and computational costs. By utilizing functional groups, we can achieve an interpretable framework that indicates their significant role in determining the properties of molecular quotient graphs. Consequently, FunQG is a straightforward, computationally efficient, and generalizable solution for addressing the molecular representation learning problem.</p>
+              </div>
+              <p class="show-more" onclick="toggleAbstract(this)">Show Abstract</p>
+            </li>
+            <li>
+              <h6><a href="https://openreview.net/forum?id=QnT41ZGNh9" class="publication-title">Regret Bounds for Satisficing in Multi-Armed Bandit Problems</a></h6>
+              <p class="section-subheading text-muted">Thomas Michel, Hossein Hajiabolhassan, and Ronald Ortner<br>Transactions on Machine Learning Research (2023)</p>
+              <div class="abstract">
+                <p>Abstract: This paper considers the objective of \textit{satisficing} in multi-armed bandit problems. Instead of aiming to find an optimal arm, the learner is content with an arm whose reward is above a given satisfaction level. We provide algorithms and analysis for the realizable case when such a satisficing arm exists as well as for the general case when this may not be the case. Introducing the notion of \textit{satisficing regret}, our main result shows that in the general case it is possible to obtain constant satisficing regret when there is a satisficing arm (thereby correcting a contrary claim in the literature), while standard logarithmic regret bounds can be re-established otherwise. Experiments illustrate that our algorithm is not only superior to standard algorithms in the satisficing setting, but also works well in the classic bandit setting.</p>
+              </div>
+              <p class="show-more" onclick="toggleAbstract(this)">Show Abstract</p>
+            </li>
+            <li>
+              <h6><a href="https://openreview.net/forum?id=0ZEGoEHg6A" class="publication-title">Online Regret Bounds for Satisficing in MDPs</a></h6>
+              <p class="section-subheading text-muted">Hossein Hajiabolhassan and Ronald Ortner<br>Sixteenth European Workshop on Reinforcement Learning (2023)</p>
+              <div class="abstract">
+                <p>Abstract: We consider general reinforcement learning under the average reward criterion in Markov decision processes (MDPs) when the learner's goal is not to learn an optimal policy but accepts any policy whose average reward is above a certain given satisfaction level~&sigma;. We show that with this more modest objective it is possible to have algorithms that only have constant regret with respect to the level~&sigma;, provided that there is a policy above this level. This result generalizes findings of Bubeck et al. (COLT 2013) from the bandit setting to MDPs. Further, we present a more general algorithm that achieves the best of both worlds: If the optimal policy has average reward above  this algorithm has bounded regret with respect to~&sigma;. On the other hand, if all policies are below  then we can show logarithmic bounds on the expected regret with respect to the optimal policy.</p>
+              </div>
+              <p class="show-more" onclick="toggleAbstract(this)">Show Abstract</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+     </div>
+  </section>
+
 
   <!-- Courses -->
   <section class="bg-light page-section" id="courses">
@@ -842,6 +908,8 @@
       </div>
     </div>
   </section>
+
+
 
   <!-- Clients -->
     <!--
@@ -1143,6 +1211,18 @@
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
 
-</body>
 
+  <script>
+    function toggleAbstract(element) {
+      var abstract = element.parentElement.querySelector(".abstract");
+      if (abstract.style.display === "none" || abstract.style.display === "") {
+        abstract.style.display = "block";
+        element.textContent = "Hide Abstract";
+      } else {
+        abstract.style.display = "none";
+        element.textContent = "Show Abstract";
+      }
+    }
+  </script>
+</body>
 </html>
